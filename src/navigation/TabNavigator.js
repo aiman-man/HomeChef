@@ -1,0 +1,23 @@
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import  HomeScreen  from '../screens/HomeScreen';
+import { SmartScreen } from '../screens/SmartScreen';
+import { LikedScreen } from '../screens/LikedScreen';
+import  ProfileScreen  from '../screens/ProfileScreen';
+import { CustomTabBar } from '../components/CustomTabBar';
+
+const Tab = createBottomTabNavigator();
+
+export const TabNavigator = () => {
+  return (
+    <Tab.Navigator
+      tabBar={(props) => <CustomTabBar {...props} />}
+      screenOptions={{ headerShown: false }}
+    >
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Smart" component={SmartScreen} />
+      <Tab.Screen name="Liked" component={LikedScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
+    </Tab.Navigator>
+  );
+};
